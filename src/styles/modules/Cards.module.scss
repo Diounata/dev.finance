@@ -1,0 +1,35 @@
+.cardsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+
+    height: 8rem;
+
+    margin-top: -5rem;
+    font-size: 1.2em;
+
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        background: var(--cards-bkg);
+        border-radius: 6px;
+        padding: 1.3rem;
+
+        &:last-of-type {
+            color: #ffffff;
+            background: rgb(73, 170, 38);
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        span:last-child {
+            font-size: 1.6em;
+        }
+    }
+}

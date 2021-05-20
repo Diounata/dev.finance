@@ -1,0 +1,12 @@
+.headerContainer {
+    display: flex;
+    justify-content: center;
+
+    height: 12rem;
+
+    background: var(--header-bkg);
+
+    div {
+        height: 50%;
+    }
+}

@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--body-bkg);
+}
+
+.container {
+    margin: 0 8rem;
+}
+
+:root {
+    --body-bkg: #f0f1f5;
+    --header-bkg: #2d4a22;
+    --cards-bkg: #ffffff;
+}
