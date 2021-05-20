@@ -1,0 +1,45 @@
+.tableContainer {
+    margin-top: 3rem;
+
+    width: 100%;
+
+    text-align: left;
+
+    thead, tr {
+        display: grid;
+        grid-template-columns: 3fr 2fr 1fr;
+    }
+
+    th {
+        margin: 0.9rem 0;
+        opacity: 0.6;
+        font-weight: 400;
+
+        &:first-of-type {
+            padding-left: 2rem;
+        }
+
+        &:last-of-type {
+            padding-left: 4.2rem;
+        }
+    }
+
+    tr {
+        background: #ffffff;
+        border-radius: 6px;
+        margin: 0.6rem 0;
+        padding: 1.3rem 2rem;
+
+        td:last-of-type {
+            text-align: right;
+        }
+    }
+}
+
+.green {
+    color: #49aa26;
+}
+
+.red {
+    color: rgb(233, 41, 41);
+}

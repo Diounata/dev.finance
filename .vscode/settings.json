@@ -3,11 +3,11 @@
     "files.exclude": {
         "node_modules": true,
         ".vscode": true,
-        ".gitignore": true,
+        ".gitignore": false,
         "package.json": true,
         "package-lock.json": true,
-        ".next": true,
-        "README.md": true
+        "README.md": true,
+        ".next": true
     },
     "discord.enabled": false
 }

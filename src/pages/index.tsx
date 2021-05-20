@@ -1,5 +1,6 @@
 import Header from '../Components/Header';
 import Cards from '../Components/Cards';
+import Table from '../Components/Table';
 
 export default function Home() {
     return (
@@ -8,6 +9,7 @@ export default function Home() {
 
             <div className='container'>
                 <Cards />
+                <Table />
             </div>
         </div>
     );

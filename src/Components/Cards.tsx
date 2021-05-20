@@ -9,7 +9,7 @@ export default function Cards() {
                     <img src='/icons/income.svg' alt='Incomes' />
                 </div>
 
-                <span> $ 2.500,00 </span>
+                <span> R$ 3.500,00 </span>
             </article>
 
             <article>
@@ -18,7 +18,7 @@ export default function Cards() {
                     <img src='/icons/expense.svg' alt='Expenses' />
                 </div>
 
-                <span> $ 800,00 </span>
+                <span> R$ 1.400,00 </span>
             </article>
 
             <article>
@@ -27,7 +27,7 @@ export default function Cards() {
                     <img src='/icons/total.svg' alt='Total' />
                 </div>
 
-                <span> $ 1.700,00 </span>
+                <span> R$ 2.100,00 </span>
             </article>
         </div>
     );
