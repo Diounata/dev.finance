@@ -7,9 +7,11 @@
     font-size: 1rem;
 
     cursor: pointer;
+    transition: 0.5s;
 
     &:hover {
         color: #3dd705;
+        transform: scale(1.05);
     }
 }
 
@@ -29,30 +31,49 @@
     thead {
         tr {
             margin: 0 2rem;
-        }
 
-        th {
-            margin: 0.9rem 0;
-            opacity: 0.6;
-            font-weight: 400;
+            th {
+                margin: 0.9rem 0;
+                opacity: 0.6;
+                font-weight: 400;
+            }
         }
     }
 
     tbody {
         tr {
-            background: #ffffff;
-            border-radius: 6px;
+            align-items: center;
+
             margin: 0.6rem 0;
             padding: 1.3rem 2rem;
+
+            background: #ffffff;
+            border-radius: 6px;
+
+            &:hover {
+                opacity: 0.85;
+            }
 
             td:last-of-type {
                 justify-self: center;
 
                 button {
-                    font-size: 0;
+                    display: flex;
+                    align-items: center;
+
                     border: 0;
                     background: inherit;
                     cursor: pointer;
+
+                    transition: 0.5s;
+
+                    &:hover {
+                        transform: rotateY(180deg);
+                    }
+
+                    img {
+                        font-size: 0;
+                    }
                 }
             }
         }

@@ -1,5 +1,6 @@
 import styles from '../styles/modules/Table.module.scss';
 
+import { useFinance } from '../Contexts/FinanceContext';
 import { useModal } from '../Contexts/ModalContext';
 
 interface finance {
@@ -9,26 +10,7 @@ interface finance {
 }
 
 export default function Table() {
-    const finance = [
-        {
-            description: 'Website development',
-            value: 3500,
-            date: '01/01/2022',
-        },
-
-        {
-            description: 'Apartment renting',
-            value: -1000,
-            date: '01/01/2022',
-        },
-
-        {
-            description: 'Computer',
-            value: -400,
-            date: '01/01/2022',
-        },
-    ];
-
+    const { finance } = useFinance();
     const { changeModalState } = useModal();
 
     return (
@@ -66,9 +48,15 @@ export default function Table() {
                             <td>{i.date}</td>
 
                             <td>
-                                <button>
-                                    <img src='/icons/minus.svg' alt='Delete' />
-                                </button>
+                                <div>
+                                    <button>
+                                        <img
+                                            src='/icons/minus.svg'
+                                            title='Delete'
+                                            alt='Delete'
+                                        />
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     ))}

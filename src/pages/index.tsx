@@ -5,19 +5,22 @@ import Footer from '../Components/Footer';
 import Modal from '../Components/Modal';
 
 import { ModalContextProvider } from '../Contexts/ModalContext';
+import { FinanceContextProvider } from '../Contexts/FinanceContext';
 
 export default function Home() {
     return (
         <ModalContextProvider>
-            <Header />
+            <FinanceContextProvider>
+                <Header />
 
-            <div className='container'>
-                <Cards />
-                <Table />
-                <Footer />
-            </div>
+                <div className='container'>
+                    <Cards />
+                    <Table />
+                    <Footer />
+                </div>
 
-            <Modal />
+                <Modal />
+            </FinanceContextProvider>
         </ModalContextProvider>
     );
 }
