@@ -9,5 +9,5 @@
         "README.md": true,
         ".next": true
     },
-    "discord.enabled": false
+    "discord.enabled": true
 }
