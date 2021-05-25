@@ -1,37 +1,60 @@
-.tableContainer {
+.addTransationContainer button {
     margin-top: 3rem;
+
+    background: inherit;
+    border: 0;
+    color: #60b049;
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    &:hover {
+        color: #3dd705;
+    }
+}
+
+.tableContainer {
+    margin-top: 1.2rem;
 
     width: 100%;
 
     text-align: left;
 
-    thead, tr {
+    thead tr,
+    tbody tr {
         display: grid;
-        grid-template-columns: 3fr 2fr 1fr;
+        grid-template-columns: 3fr 2fr 1fr 1fr;
     }
 
-    th {
-        margin: 0.9rem 0;
-        opacity: 0.6;
-        font-weight: 400;
-
-        &:first-of-type {
-            padding-left: 2rem;
+    thead {
+        tr {
+            margin: 0 2rem;
         }
 
-        &:last-of-type {
-            padding-left: 4.2rem;
+        th {
+            margin: 0.9rem 0;
+            opacity: 0.6;
+            font-weight: 400;
         }
     }
 
-    tr {
-        background: #ffffff;
-        border-radius: 6px;
-        margin: 0.6rem 0;
-        padding: 1.3rem 2rem;
+    tbody {
+        tr {
+            background: #ffffff;
+            border-radius: 6px;
+            margin: 0.6rem 0;
+            padding: 1.3rem 2rem;
 
-        td:last-of-type {
-            text-align: right;
+            td:last-of-type {
+                justify-self: center;
+
+                button {
+                    font-size: 0;
+                    border: 0;
+                    background: inherit;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

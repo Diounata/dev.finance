@@ -12,7 +12,7 @@ interface ModalProps {
 }
 
 export function ModalContextProvider({ children }: ChildrenProps) {
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     function changeModalState(value: boolean) {
         setIsModalOpen(value);
