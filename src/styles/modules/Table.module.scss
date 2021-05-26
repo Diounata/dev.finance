@@ -54,25 +54,35 @@
                 opacity: 0.85;
             }
 
-            td:last-of-type {
-                justify-self: center;
+            td {
+                span {
+                    display: inline-block;
 
-                button {
-                    display: flex;
-                    align-items: center;
-
-                    border: 0;
-                    background: inherit;
-                    cursor: pointer;
-
-                    transition: 0.5s;
-
-                    &:hover {
-                        transform: rotateY(180deg);
+                    &::first-letter {
+                        text-transform: uppercase;
                     }
+                }
 
-                    img {
-                        font-size: 0;
+                &:last-of-type {
+                    justify-self: center;
+
+                    button {
+                        display: flex;
+                        align-items: center;
+
+                        border: 0;
+                        background: inherit;
+                        cursor: pointer;
+
+                        transition: 0.5s;
+
+                        &:hover {
+                            transform: rotateY(180deg);
+                        }
+
+                        img {
+                            font-size: 0;
+                        }
                     }
                 }
             }

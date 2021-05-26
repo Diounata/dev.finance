@@ -10,7 +10,7 @@ interface finance {
 }
 
 export default function Table() {
-    const { finance } = useFinance();
+    const { finance, deleteFinance } = useFinance();
     const { changeModalState } = useModal();
 
     return (
@@ -33,7 +33,9 @@ export default function Table() {
                 <tbody>
                     {finance.map((i: finance, index) => (
                         <tr key={index}>
-                            <td>{i.description}</td>
+                            <td>
+                                <span>{i.description}</span>
+                            </td>
 
                             <td
                                 className={
@@ -49,7 +51,9 @@ export default function Table() {
 
                             <td>
                                 <div>
-                                    <button>
+                                    <button
+                                        onClick={() => deleteFinance(index)}
+                                    >
                                         <img
                                             src='/icons/minus.svg'
                                             title='Delete'

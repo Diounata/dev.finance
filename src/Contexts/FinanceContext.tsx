@@ -44,9 +44,15 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
         setFinance(value);
     }
 
-    function addFinance() {}
+    function addFinance(value: FinanceProps): void {
+        const newArray = [value, ...finance];
+        updateFinance(newArray);
+    }
 
-    function deleteFinance() {}
+    function deleteFinance(index: number): void {
+        const filteredFinance = finance.filter((f, i) => index !== i);
+        updateFinance(filteredFinance);
+    }
 
     return (
         <FinanceContext.Provider value={{ finance, addFinance, deleteFinance }}>
