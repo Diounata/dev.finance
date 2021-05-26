@@ -32,6 +32,10 @@ export default function Modal() {
         ) {
             alert('The form field is not filled correctly.');
         } else {
+            descriptionRef.current.value = '';
+            valueRef.current.value = '';
+            dateRef.current.value = '';
+
             addFinance(newFinance);
             changeModalState(false);
         }

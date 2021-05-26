@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import {
+    createContext,
+    ReactNode,
+    useContext,
+    useEffect,
+    useState,
+} from 'react';
 
 export const FinanceContext = createContext({} as ContextProps);
 
@@ -12,8 +18,15 @@ interface FinanceProps {
     date: string;
 }
 
+interface CardsValueProps {
+    income: number;
+    expense: number;
+    total: number;
+}
+
 interface ContextProps {
     finance: FinanceProps[];
+    cardsValue: CardsValueProps;
 
     addFinance(value): void;
     deleteFinance(value): void;
@@ -39,6 +52,7 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
             date: '01/01/2022',
         },
     ]);
+    const [cardsValue, setCardsValue] = useState({} as CardsValueProps);
 
     function updateFinance(value: FinanceProps[]): void {
         setFinance(value);
@@ -54,8 +68,29 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
         updateFinance(filteredFinance);
     }
 
+    useEffect(() => {
+        let newValue = { income: 0, expense: 0, total: 0 };
+
+        finance.forEach(f => {
+            f.value > 0
+                ? (newValue.income += f.value)
+                : (newValue.expense += f.value);
+
+            newValue.total += f.value;
+        });
+
+        setCardsValue(newValue);
+    }, [finance]);
+
     return (
-        <FinanceContext.Provider value={{ finance, addFinance, deleteFinance }}>
+        <FinanceContext.Provider
+            value={{
+                finance,
+                cardsValue,
+                addFinance,
+                deleteFinance,
+            }}
+        >
             {children}
         </FinanceContext.Provider>
     );

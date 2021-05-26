@@ -64,7 +64,9 @@
                 }
 
                 &:last-of-type {
+                    display: flex;
                     justify-self: center;
+                    gap: 0.8rem;
 
                     button {
                         display: flex;
@@ -77,7 +79,7 @@
                         transition: 0.5s;
 
                         &:hover {
-                            transform: rotateY(180deg);
+                            transform: scale(1.1);
                         }
 
                         img {

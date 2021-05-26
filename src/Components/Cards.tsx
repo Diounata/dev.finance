@@ -1,6 +1,10 @@
 import styles from '../styles/modules/Cards.module.scss';
 
+import { useFinance } from '../Contexts/FinanceContext';
+
 export default function Cards() {
+    const { cardsValue } = useFinance();
+
     return (
         <div className={styles.cardsContainer}>
             <article>
@@ -9,7 +13,7 @@ export default function Cards() {
                     <img src='/icons/income.svg' alt='Incomes' />
                 </div>
 
-                <span> R$ 3.500,00 </span>
+                <span> R$ {cardsValue.income} </span>
             </article>
 
             <article>
@@ -18,7 +22,7 @@ export default function Cards() {
                     <img src='/icons/expense.svg' alt='Expenses' />
                 </div>
 
-                <span> R$ 1.400,00 </span>
+                <span> R$ {cardsValue.expense} </span>
             </article>
 
             <article>
@@ -27,7 +31,7 @@ export default function Cards() {
                     <img src='/icons/total.svg' alt='Total' />
                 </div>
 
-                <span> R$ 2.100,00 </span>
+                <span> R$ {cardsValue.total} </span>
             </article>
         </div>
     );
