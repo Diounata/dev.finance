@@ -92,6 +92,12 @@
     }
 }
 
+.noFinance {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    justify-self: center;
+}
+
 .green {
     color: #49aa26;
 }

@@ -33,29 +33,12 @@ interface ContextProps {
 }
 
 export function FinanceContextProvider({ children }: ChildrenProps) {
-    const [finance, setFinance] = useState([
-        {
-            description: 'Website development',
-            value: 3500,
-            date: '01/01/2022',
-        },
-
-        {
-            description: 'Apartment renting',
-            value: -1000,
-            date: '01/01/2022',
-        },
-
-        {
-            description: 'Computer',
-            value: -400,
-            date: '01/01/2022',
-        },
-    ]);
+    const [finance, setFinance] = useState([]);
     const [cardsValue, setCardsValue] = useState({} as CardsValueProps);
 
     function updateFinance(value: FinanceProps[]): void {
         setFinance(value);
+        localStorage.setItem('storagedFinance', JSON.stringify(value));
     }
 
     function addFinance(value: FinanceProps): void {
@@ -81,6 +64,12 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
 
         setCardsValue(newValue);
     }, [finance]);
+
+    useEffect(() => {
+        if (localStorage.getItem('storagedFinance')) {
+            updateFinance(JSON.parse(localStorage.getItem('storagedFinance')));
+        }
+    }, []);
 
     return (
         <FinanceContext.Provider
