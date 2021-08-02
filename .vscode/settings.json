@@ -1,9 +1,9 @@
 {
-    "git.enabled": false,
+    "git.enabled": true,
     "files.exclude": {
         "node_modules": true,
         ".vscode": true,
-        ".gitignore": false,
+        ".gitignore": true,
         "package.json": true,
         "package-lock.json": true,
         "README.md": true,

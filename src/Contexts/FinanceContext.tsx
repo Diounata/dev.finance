@@ -1,10 +1,4 @@
-import {
-    createContext,
-    ReactNode,
-    useContext,
-    useEffect,
-    useState,
-} from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 export const FinanceContext = createContext({} as ContextProps);
 
@@ -28,13 +22,13 @@ interface ContextProps {
     finance: FinanceProps[];
     cardsValue: CardsValueProps;
 
-    addFinance(value): void;
-    deleteFinance(value): void;
+    /* addFinance(value: number): void; */
+    deleteFinance(value: number): void;
 }
 
 export function FinanceContextProvider({ children }: ChildrenProps) {
-    const [finance, setFinance] = useState([]);
-    const [cardsValue, setCardsValue] = useState({} as CardsValueProps);
+    const [finance, setFinance] = useState<FinanceProps[]>();
+    const [cardsValue, setCardsValue] = useState<CardsValueProps>();
 
     function updateFinance(value: FinanceProps[]): void {
         setFinance(value);
@@ -55,9 +49,7 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
         let newValue = { income: 0, expense: 0, total: 0 };
 
         finance.forEach(f => {
-            f.value > 0
-                ? (newValue.income += f.value)
-                : (newValue.expense += f.value);
+            f.value > 0 ? (newValue.income += f.value) : (newValue.expense += f.value);
 
             newValue.total += f.value;
         });

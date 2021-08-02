@@ -7,12 +7,62 @@
     cursor: default;
 }
 
-body {
+body,
+html {
     background: var(--body-bkg);
+    overflow: overlay;
+
+    ::-webkit-scrollbar {
+        width: 0.4rem;
+        height: 0.4rem;
+        
+        @media (max-width: 768px) {
+            & {
+                width: 4px;
+                height: 4px;
+            }
+        }
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 50px;
+        background: #666;    
+    }
 }
 
 .container {
     margin: 0 8rem;
+    overflow: auto;
+
+    @media (max-width: 1100px) {
+        & {
+            margin: 0 4rem;
+        }
+    }
+
+    @media (max-width: 850px) {
+        & {
+            margin: 0 2rem;
+        }
+    }
+
+    @media (max-width: 440px) {
+        & {
+            margin: 0 1rem;
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%; // 15px
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 87.5%; // 14px
+    }
 }
 
 :root {

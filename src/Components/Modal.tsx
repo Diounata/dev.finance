@@ -1,8 +1,8 @@
 import { useRef } from 'react';
-import styles from '../styles/modules/Modal.module.scss';
+import styles from '@styles/Modal.module.scss';
 
-import { useModal } from '../Contexts/ModalContext';
-import { useFinance } from '../Contexts/FinanceContext';
+import { useModal } from '@Contexts/ModalContext';
+import { useFinance } from '@Contexts/FinanceContext';
 
 interface FinanceProps {
     description: string;
@@ -25,11 +25,7 @@ export default function Modal() {
             date: dateRef.current.value.split('-').reverse().join('/'),
         };
 
-        if (
-            newFinance.description === '' ||
-            newFinance.value === 0 ||
-            newFinance.date === ''
-        ) {
+        if (newFinance.description === '' || newFinance.value === 0 || newFinance.date === '') {
             alert('The form field is not filled correctly.');
         } else {
             descriptionRef.current.value = '';
@@ -47,30 +43,16 @@ export default function Modal() {
                 <h2>New transation</h2>
 
                 <div>
-                    <input
-                        type='text'
-                        placeholder='Description'
-                        ref={descriptionRef}
-                    />
+                    <input type='text' placeholder='Description' ref={descriptionRef} />
 
-                    <input
-                        type='number'
-                        id='moneyInput'
-                        placeholder='0,00'
-                        ref={valueRef}
-                    />
-                    <label htmlFor='moneyInput'>
-                        Use - (line) for expenses and , (comma) for decimal
-                        place.
-                    </label>
+                    <input type='number' id='moneyInput' placeholder='0,00' ref={valueRef} />
+                    <label htmlFor='moneyInput'>Use - (line) for expenses and , (comma) for decimal place.</label>
 
                     <input type='date' ref={dateRef} />
                 </div>
 
                 <div>
-                    <button onClick={() => changeModalState(false)}>
-                        Cancel
-                    </button>
+                    <button onClick={() => changeModalState(false)}>Cancel</button>
 
                     <button onClick={add}>Save</button>
                 </div>
