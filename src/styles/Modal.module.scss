@@ -52,34 +52,41 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 1rem;
+            }
+        }
 
-                button {
-                    height: 3rem;
+        button {
+            height: 3rem;
 
-                    border: 0;
-                    border-radius: 3px;
-                    cursor: pointer;
+            border: 0;
+            border-radius: 3px;
+            cursor: pointer;
 
-                    &:first-of-type {
-                        background: inherit;
-                        color: #e92929;
-                        border: 2px solid #e92929;
+            &:first-of-type {
+                background: inherit;
+                color: #e92929;
+                border: 2px solid #e92929;
 
-                        opacity: 0.6;
+                opacity: 0.6;
 
-                        &:hover {
-                            opacity: 1;
-                        }
-                    }
+                &:hover {
+                    opacity: 1;
+                }
+            }
 
-                    &:last-of-type {
-                        background: #60b049;
-                        color: #ffffff;
+            &:last-of-type {
+                background: #60b049;
+                color: #ffffff;
 
-                        &:hover {
-                            background: #3dd705;
-                        }
-                    }
+                &:hover {
+                    background: #3dd705;
+                }
+
+                &:disabled {
+                    opacity: 0.7;
+                    cursor: not-allowed;
+
+                    background: #60b049;
                 }
             }
         }

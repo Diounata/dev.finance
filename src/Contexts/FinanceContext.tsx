@@ -9,10 +9,13 @@ interface ChildrenProps {
 interface FinanceProps {
     description: string;
     value: number;
-    date: string;
+    date: {
+        domString: string;
+        formatted: string;
+    };
 }
 
-interface CardsValueProps {
+interface FinanceCardProps {
     income: number;
     expense: number;
     total: number;
@@ -20,54 +23,58 @@ interface CardsValueProps {
 
 interface ContextProps {
     finance: FinanceProps[];
-    cardsValue: CardsValueProps;
+    financeCard: FinanceCardProps;
 
-    /* addFinance(value: number): void; */
-    deleteFinance(value: number): void;
+    addFinance(value: FinanceProps): void;
+    deleteFinance(index: number): void;
 }
 
 export function FinanceContextProvider({ children }: ChildrenProps) {
-    const [finance, setFinance] = useState<FinanceProps[]>();
-    const [cardsValue, setCardsValue] = useState<CardsValueProps>();
-
-    function updateFinance(value: FinanceProps[]): void {
-        setFinance(value);
-        localStorage.setItem('storagedFinance', JSON.stringify(value));
-    }
+    const [finance, setFinance] = useState<FinanceProps[]>([
+        {
+            description: 'Website development',
+            value: 3500,
+            date: {
+                domString: '2022-01-01',
+                formatted: '01/01/2022',
+            },
+        },
+    ]);
+    const [financeCard, setFinanceCard] = useState({} as FinanceCardProps);
 
     function addFinance(value: FinanceProps): void {
         const newArray = [value, ...finance];
-        updateFinance(newArray);
+
+        setFinance(newArray);
     }
 
     function deleteFinance(index: number): void {
-        const filteredFinance = finance.filter((f, i) => index !== i);
-        updateFinance(filteredFinance);
+        const newFinance = finance.filter((f, key) => index !== key);
+
+        setFinance(newFinance);
     }
 
     useEffect(() => {
         let newValue = { income: 0, expense: 0, total: 0 };
 
         finance.forEach(f => {
-            f.value > 0 ? (newValue.income += f.value) : (newValue.expense += f.value);
+            if (f.value > 0) {
+                newValue.income += f.value;
+            } else {
+                newValue.expense += f.value;
+            }
 
             newValue.total += f.value;
         });
 
-        setCardsValue(newValue);
+        setFinanceCard(newValue);
     }, [finance]);
-
-    useEffect(() => {
-        if (localStorage.getItem('storagedFinance')) {
-            updateFinance(JSON.parse(localStorage.getItem('storagedFinance')));
-        }
-    }, []);
 
     return (
         <FinanceContext.Provider
             value={{
                 finance,
-                cardsValue,
+                financeCard,
                 addFinance,
                 deleteFinance,
             }}

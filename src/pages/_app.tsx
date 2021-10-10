@@ -1,8 +1,15 @@
+import Head from 'next/head';
 import '../styles/main.scss';
 
-import { ModalContextProvider } from '../Contexts/ModalContext';
-import { FinanceContextProvider } from '../Contexts/FinanceContext';
-
 export default function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps} />;
+    return (
+        <>
+            <Head>
+                <title>dev.finance</title>
+                <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+            </Head>
+
+            <Component {...pageProps} />
+        </>
+    );
 }

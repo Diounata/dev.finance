@@ -1,24 +1,26 @@
-import Title from '../utils/Title';
 import Header from '../Components/Header';
 import Cards from '../Components/Cards';
 import Table from '../Components/Table';
 import Footer from '../Components/Footer';
-import Modal from '../Components/Modal';
+import NewFinanceModal from '@Components/NewFinanceModal';
+
+import { ModalContextProvider } from '../Contexts/ModalContext';
+import { FinanceContextProvider } from '../Contexts/FinanceContext';
 
 export default function Home() {
     return (
-        <>
-            <Title>dev.finance</Title>
-            <Header />
-            <Cards />
+        <ModalContextProvider>
+            <FinanceContextProvider>
+                <Header />
 
-            <div className='container'>
-                <Table />
-            </div>
+                <div className="container">
+                    <Cards />
+                    <Table />
+                    <Footer />
+                </div>
 
-            <Footer />
-
-            <Modal />
-        </>
+                <NewFinanceModal />
+            </FinanceContextProvider>
+        </ModalContextProvider>
     );
 }

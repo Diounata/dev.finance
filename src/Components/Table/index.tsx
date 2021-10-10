@@ -1,6 +1,6 @@
 import styles from '@styles/Table.module.scss';
 
-import TableItem from './TableItem';
+import TableBody from './TableBody';
 
 import { useModal } from '@Contexts/ModalContext';
 
@@ -19,14 +19,11 @@ export default function Table() {
                         <th>Description</th>
                         <th>Value</th>
                         <th>Date</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <TableItem styles={styles} />
-                    <TableItem styles={styles} />
-                    <TableItem styles={styles} />
+                    <TableBody styles={styles} />
                 </tbody>
             </table>
         </>
