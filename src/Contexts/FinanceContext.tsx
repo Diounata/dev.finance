@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 import * as sampleEditingPlayer from '@utils/sampleEditingPlayer.json';
+import { useModal } from './ModalContext';
 
 export const FinanceContext = createContext({} as ContextProps);
 
@@ -52,6 +53,8 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
     const [financeCard, setFinanceCard] = useState({} as FinanceCardProps);
     const [editingFinance, setEditingFinance] = useState<EditingFinanceProps>(sampleEditingPlayer);
 
+    const { selectModal } = useModal();
+
     function addFinance(value: FinanceProps): void {
         const newArray = [value, ...finance];
 
@@ -74,6 +77,7 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
         const newEditingFinance = { ...finance[id], id };
 
         setEditingFinance(newEditingFinance);
+        selectModal('edit');
     }
 
     useEffect(() => {

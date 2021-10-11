@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import styles from '../styles/Modal.module.scss';
+import { useEffect, useState } from 'react';
 
-import { useModal } from '../Contexts/ModalContext';
-import { useFinance } from '../Contexts/FinanceContext';
+import { useModal } from '@Contexts/ModalContext';
+import { useFinance } from '@Contexts/FinanceContext';
 
 interface FinanceProps {
     description: string;
@@ -13,15 +12,15 @@ interface FinanceProps {
     };
 }
 
-export default function NewFinanceModal() {
-    const { isModalOpen, changeModalState } = useModal();
-    const { addFinance } = useFinance();
+export default function EditingFinanceModal() {
+    const { changeModalState } = useModal();
+    const { editingFinance, editFinance } = useFinance();
 
-    const [description, setDescription] = useState('');
-    const [value, setValue] = useState('');
-    const [date, setDate] = useState('');
+    const [description, setDescription] = useState<string>();
+    const [value, setValue] = useState<string>();
+    const [date, setDate] = useState<string>();
 
-    function add() {
+    function edit(): void {
         const newFinance: FinanceProps = {
             description,
             value: Number(value),
@@ -31,18 +30,20 @@ export default function NewFinanceModal() {
             },
         };
 
-        addFinance(newFinance);
+        editFinance(newFinance, editingFinance.id);
         changeModalState(false);
-
-        setDescription('');
-        setValue('');
-        setDate('');
     }
 
+    useEffect(() => {
+        setDescription(editingFinance.description);
+        setValue(String(editingFinance.value));
+        setDate(editingFinance.date.domString);
+    }, [editingFinance]);
+
     return (
-        <div className={isModalOpen ? styles.modalContainer : styles.closed}>
+        <>
             <div>
-                <h2>New transation</h2>
+                <h2>Edit transaction</h2>
 
                 <div>
                     <input
@@ -69,11 +70,11 @@ export default function NewFinanceModal() {
                 <div>
                     <button onClick={() => changeModalState(false)}>Cancel</button>
 
-                    <button onClick={add} disabled={description && value && date ? false : true}>
-                        Save
+                    <button onClick={edit} disabled={description && value && date ? false : true}>
+                        Edit
                     </button>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

@@ -5,12 +5,12 @@ import TableBody from './TableBody';
 import { useModal } from '@Contexts/ModalContext';
 
 export default function Table() {
-    const { changeModalState } = useModal();
+    const { selectModal} = useModal();
 
     return (
         <>
             <div className={styles.addTransationContainer}>
-                <button onClick={() => changeModalState(true)}>+ New transation</button>
+                <button onClick={() => selectModal('add')}>+ New transation</button>
             </div>
 
             <table className={styles.tableContainer}>

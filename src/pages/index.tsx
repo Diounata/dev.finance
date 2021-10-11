@@ -2,8 +2,7 @@ import Header from '../Components/Header';
 import Cards from '../Components/Cards';
 import Table from '../Components/Table';
 import Footer from '../Components/Footer';
-import NewFinanceModal from '@Components/NewFinanceModal';
-import EditingFinanceModal from '@Components/EditingFinanceModal';
+import Modal from '@Components/Modal';
 
 import { ModalContextProvider } from '../Contexts/ModalContext';
 import { FinanceContextProvider } from '../Contexts/FinanceContext';
@@ -20,8 +19,7 @@ export default function Home() {
                     <Footer />
                 </div>
 
-                <NewFinanceModal />
-                <EditingFinanceModal />
+                <Modal />
             </FinanceContextProvider>
         </ModalContextProvider>
     );
