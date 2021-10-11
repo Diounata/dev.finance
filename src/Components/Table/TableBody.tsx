@@ -12,7 +12,7 @@ interface FinanceProps {
 }
 
 export default function TableBody({ styles }) {
-    const { finance, deleteFinance } = useFinance();
+    const { finance, updateEditingFinance, deleteFinance } = useFinance();
 
     return (
         <>
@@ -30,7 +30,7 @@ export default function TableBody({ styles }) {
 
                     <td>
                         <div>
-                            <button>
+                            <button onClick={() => updateEditingFinance(key)}>
                                 <Image src="/pencil.svg" width={22} height={22} title="Edit" alt="Edit" />
                             </button>
                         </div>

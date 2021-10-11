@@ -1,0 +1,9 @@
+{
+    "description": "string",
+    "value": 0,
+    "date": {
+        "domString": "01-01-1970",
+        "formatted": "01/01/1970"
+    },
+    "id": 1
+}

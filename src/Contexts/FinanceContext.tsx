@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
+import * as sampleEditingPlayer from '@utils/sampleEditingPlayer.json';
+
 export const FinanceContext = createContext({} as ContextProps);
 
 interface ChildrenProps {
@@ -21,12 +23,19 @@ interface FinanceCardProps {
     total: number;
 }
 
+interface EditingFinanceProps extends FinanceProps {
+    id: number;
+}
+
 interface ContextProps {
     finance: FinanceProps[];
     financeCard: FinanceCardProps;
+    editingFinance: EditingFinanceProps;
 
     addFinance(value: FinanceProps): void;
     deleteFinance(index: number): void;
+    editFinance(newFinance: FinanceProps, index: number): void;
+    updateEditingFinance(id: number): void;
 }
 
 export function FinanceContextProvider({ children }: ChildrenProps) {
@@ -41,6 +50,7 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
         },
     ]);
     const [financeCard, setFinanceCard] = useState({} as FinanceCardProps);
+    const [editingFinance, setEditingFinance] = useState<EditingFinanceProps>(sampleEditingPlayer);
 
     function addFinance(value: FinanceProps): void {
         const newArray = [value, ...finance];
@@ -52,6 +62,18 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
         const newFinance = finance.filter((f, key) => index !== key);
 
         setFinance(newFinance);
+    }
+
+    function editFinance(newFinance: FinanceProps, index: number): void {
+        const newFinanceObject = finance.map((finance, key) => (index === key ? newFinance : finance));
+
+        setFinance(newFinanceObject);
+    }
+
+    function updateEditingFinance(id: number): void {
+        const newEditingFinance = { ...finance[id], id };
+
+        setEditingFinance(newEditingFinance);
     }
 
     useEffect(() => {
@@ -75,8 +97,11 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
             value={{
                 finance,
                 financeCard,
+                editingFinance,
                 addFinance,
                 deleteFinance,
+                editFinance,
+                updateEditingFinance,
             }}
         >
             {children}
