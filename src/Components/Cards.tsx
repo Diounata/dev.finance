@@ -27,7 +27,7 @@ export default function Cards() {
                     <Image src="/expense.svg" width={32} height={32} alt="Expenses" title="Expenses" />
                 </div>
 
-                <span> {formatMoney(financeCard.expense)} </span>
+                <span> {formatMoney(financeCard.expense * -1)} </span>
             </article>
 
             <article>
