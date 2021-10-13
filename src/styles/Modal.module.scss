@@ -90,6 +90,19 @@
                 }
             }
         }
+
+        @media (max-width: 700px) {
+            width: 85vw;
+            gap: 1.4rem;
+
+            input {
+                width: 100%;
+            }
+
+            button {
+                height: 2.5rem;
+            }
+        }
     }
 }
 
