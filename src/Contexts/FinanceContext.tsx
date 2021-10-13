@@ -73,6 +73,12 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
     }
 
     useEffect(() => {
+        if (localStorage.getItem('finances')) {
+            setFinance(JSON.parse(localStorage.getItem('finances')));
+        }
+    }, []);
+
+    useEffect(() => {
         let newValue = { income: 0, expense: 0, total: 0 };
 
         finance.forEach(f => {
@@ -86,6 +92,7 @@ export function FinanceContextProvider({ children }: ChildrenProps) {
         });
 
         setFinanceCard(newValue);
+        localStorage.setItem('finances', JSON.stringify(finance));
     }, [finance]);
 
     return (

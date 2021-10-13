@@ -18,6 +18,7 @@
 
     @media (max-width: 650px) {
         display: flex;
+        justify-content: center;
 
         button {
             transform: scale(1.1);
