@@ -1,13 +1,15 @@
 import Image from 'next/image';
 import styles from '@styles/Cards.module.scss';
 
+import formatMoney from '@utils/formatMoney';
+
 import { useFinance } from '@Contexts/FinanceContext';
 
 export default function Cards() {
     const { financeCard } = useFinance();
 
     return (
-        <div className={styles.cardsContainer} id='cards-container'>
+        <div className={styles.cardsContainer} id="cards-container">
             <article>
                 <div>
                     <span>Incomes</span>
@@ -15,7 +17,7 @@ export default function Cards() {
                     <Image src="/income.svg" width={32} height={32} alt="Incomes" title="Incomes" />
                 </div>
 
-                <span> R$ {financeCard.income} </span>
+                <span> {formatMoney(financeCard.income)} </span>
             </article>
 
             <article>
@@ -25,7 +27,7 @@ export default function Cards() {
                     <Image src="/expense.svg" width={32} height={32} alt="Expenses" title="Expenses" />
                 </div>
 
-                <span> R$ {financeCard.expense} </span>
+                <span> {formatMoney(financeCard.expense)} </span>
             </article>
 
             <article>
@@ -35,7 +37,7 @@ export default function Cards() {
                     <Image src="/total.svg" width={32} height={32} alt="Total" title="Total" />
                 </div>
 
-                <span> R$ {financeCard.total} </span>
+                <span> {formatMoney(financeCard.total)} </span>
             </article>
         </div>
     );

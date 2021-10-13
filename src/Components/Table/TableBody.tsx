@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import formatMoney from '@utils/formatMoney';
 
 import { useFinance } from '../../Contexts/FinanceContext';
 
@@ -23,7 +24,7 @@ export default function TableBody({ styles }) {
                     </td>
 
                     <td className={item.value < 0 ? styles.red : styles.green}>
-                        {item.value < 0 ? `-R$ ${item.value * -1}` : `R$ ${item.value}`}
+                        {formatMoney(item.value)}
                     </td>
 
                     <td>{item.date.formatted}</td>
