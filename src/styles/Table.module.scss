@@ -1,17 +1,27 @@
-.addTransationContainer button {
+.addTransationContainer {
     margin-top: 3rem;
 
-    background: inherit;
-    border: 0;
-    color: #60b049;
-    font-size: 1rem;
+    button {
+        background: inherit;
+        border: 0;
+        color: #60b049;
+        font-size: 1rem;
 
-    cursor: pointer;
-    transition: 0.5s;
+        cursor: pointer;
+        transition: 0.5s;
 
-    &:hover {
-        color: #3dd705;
-        transform: scale(1.05);
+        &:hover {
+            color: #3dd705;
+            transform: scale(1.05);
+        }
+    }
+
+    @media (max-width: 650px) {
+        display: flex;
+
+        button {
+            transform: scale(1.1);
+        }
     }
 }
 
