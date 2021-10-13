@@ -3,9 +3,10 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
 
-    height: 8rem;
-
     margin-top: -5rem;
+    padding: 1rem 8rem;
+
+    height: 8rem;
     font-size: 1.2em;
 
     article {
@@ -31,5 +32,22 @@
         span:last-child {
             font-size: 1.6em;
         }
+    }
+
+    @media (max-width: 1050px) {
+        padding: 0 4rem;
+    }
+
+    @media (max-width: 800px) {
+        padding: 0 2rem;
+        height: auto;
+    }
+
+    @media (max-width: 650px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        padding: 2rem 1rem;
+        background: var(--header-background);
     }
 }

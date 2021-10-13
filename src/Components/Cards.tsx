@@ -7,7 +7,7 @@ export default function Cards() {
     const { financeCard } = useFinance();
 
     return (
-        <div className={styles.cardsContainer}>
+        <div className={styles.cardsContainer} id='cards-container'>
             <article>
                 <div>
                     <span>Incomes</span>

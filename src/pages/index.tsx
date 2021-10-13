@@ -12,9 +12,9 @@ export default function Home() {
         <ModalContextProvider>
             <FinanceContextProvider>
                 <Header />
+                <Cards />
 
                 <div className="container">
-                    <Cards />
                     <Table />
                     <Footer />
                 </div>
