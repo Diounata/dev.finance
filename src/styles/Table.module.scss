@@ -46,6 +46,10 @@
                 margin: 0.9rem 0;
                 opacity: 0.6;
                 font-weight: 400;
+
+                &:last-of-type {
+                    text-align: center;
+                }
             }
         }
     }
