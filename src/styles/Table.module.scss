@@ -100,6 +100,37 @@
             }
         }
     }
+
+    @media (max-width: 600px) {
+        tbody tr,
+        thead tr {
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto auto;
+            row-gap: 1rem;
+
+            td:last-of-type {
+                gap: 0.4rem;
+            }
+        }
+
+        thead {
+            background: #ffffff;
+
+            tr {
+                row-gap: 0.4rem;
+
+                th {
+                    margin: 0.6rem 0;
+                }
+            }
+        }
+
+        th:nth-child(2),
+        .green,
+        .red {
+            text-align: end;
+        }
+    }
 }
 
 .green {

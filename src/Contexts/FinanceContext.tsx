@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 import * as sampleEditingPlayer from '@utils/sampleEditingPlayer.json';
+
 import { useModal } from './ModalContext';
 
 export const FinanceContext = createContext({} as ContextProps);
@@ -40,16 +41,7 @@ interface ContextProps {
 }
 
 export function FinanceContextProvider({ children }: ChildrenProps) {
-    const [finance, setFinance] = useState<FinanceProps[]>([
-        {
-            description: 'Website development',
-            value: 3500,
-            date: {
-                domString: '2022-01-01',
-                formatted: '01/01/2022',
-            },
-        },
-    ]);
+    const [finance, setFinance] = useState<FinanceProps[]>([]);
     const [financeCard, setFinanceCard] = useState({} as FinanceCardProps);
     const [editingFinance, setEditingFinance] = useState<EditingFinanceProps>(sampleEditingPlayer);
 
