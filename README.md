@@ -13,7 +13,7 @@
 </p>
 
 <p align='center'>
-<img src="https://github.com/Diounata/to-do-app/blob/main/.github/app.png" alt="App image" />
+<img src="https://github.com/Diounata/dev.finance/blob/main/.github/app.png" alt="App image" />
 </p>
  
 ## :dart: Overview
