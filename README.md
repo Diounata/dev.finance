@@ -13,7 +13,7 @@
 </p>
 
 <p align='center'>
-<img src="https://github.com/Diounata/to-do-app/blob/main/.github/app.png" alt="App image" />
+<img src="https://github.com/Diounata/dev.finance/blob/main/.github/app.png" alt="App image" />
 </p>
  
 ## :dart: Overview
@@ -65,7 +65,7 @@ $ npm run dev
 
 ## :balance_scale: License
 
-This repository is covered by MIT license. See the <a href='https://github.com/Diounata/to-do-app/blob/main/LICENSE'>LICENSE</a> for more information.
+This repository is covered by MIT license. See the <a href='https://github.com/Diounata/dev.finance/blob/main/LICENSE'>LICENSE</a> for more information.
 
 ##
 
