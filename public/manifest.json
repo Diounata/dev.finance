@@ -1,0 +1,12 @@
+{
+    "name": "dev.finance",
+    "short_name": "dev.finance",
+    "icons": {
+        "src": "/favicon.svg"
+    },
+    "theme_color": "#f0f1f5",
+    "background_color": "#f0f1f5",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+}
